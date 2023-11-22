@@ -38,3 +38,8 @@ This system can be installed from [UltraLisp](https://ultralisp.org/) like this:
 ## Credits
 
 Using regexp list from https://github.com/ua-parser/uap-core
+
+## License
+
+- The system is licensed under the MIT license
+- The data contained in `regexes.lisp` is Copyright 2009 Google Inc. and available under the Apache License, Version 2.0.

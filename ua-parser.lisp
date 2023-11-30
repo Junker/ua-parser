@@ -1,16 +1,17 @@
 (in-package #:ua-parser)
 
 ;; compile regexes
-(flet ((%compile-regex-list (regex-list)
-         (mapcar #'(lambda (l)
-                     (setf (getf l :regex)
-                           (ppcre:create-scanner (getf l :regex)
-                                                 :case-insensitive-mode (equal (getf l :regex-flag) "i")))
-                     l)
-                 regex-list)))
-  (setf *os-regexes* (%compile-regex-list *os-regexes*))
-  (setf *user-agent-regexes* (%compile-regex-list *user-agent-regexes*))
-  (setf *device-regexes* (%compile-regex-list *device-regexes*)))
+(eval-when (:compile-toplevel)
+  (flet ((%compile-regex-list (regex-list)
+           (mapcar #'(lambda (l)
+                       (setf (getf l :regex)
+                             (ppcre:create-scanner (getf l :regex)
+                                                   :case-insensitive-mode (equal (getf l :regex-flag) "i")))
+                       l)
+                   regex-list)))
+    (setf *os-regexes* (%compile-regex-list *os-regexes*))
+    (setf *user-agent-regexes* (%compile-regex-list *user-agent-regexes*))
+    (setf *device-regexes* (%compile-regex-list *device-regexes*))))
 
 
 (defun replace-placeholders (replacement matches match-pos)

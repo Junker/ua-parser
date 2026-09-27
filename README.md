@@ -1,5 +1,9 @@
 # UA-Parser
 
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Common Lisp](https://img.shields.io/badge/Common%20Lisp-library-orange.svg)](https://common-lisp.net/)
+
+
 User Agent Parser for Common Lisp.
 
 ## Installation
